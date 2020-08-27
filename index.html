@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/grid.css">
+
+        <script>
+            $(document).ready(function(){
+                $("#toggleDocumentation").click(function(){
+                    $("#documentation").slideToggle("slow");
+                });
+                
+                $("#artistBtn").click(function(){
+                    $('html, body').animate({
+                        scrollTop: $("#artistSection").offset().top-70
+                    }, 700);
+                });
+            
+                $("#imagesBtn").click(function(){
+                    $('html, body').animate({
+                        scrollTop: $("#imagesSection").offset().top-70
+                    }, 700);
+                });
+                
+            $("#documentationBtn").click(function(){
+                $('html, body').animate({
+                    scrollTop: $("#documentationSection").offset().top-70
+                }, 700);
+            });
+            
+            
+        });
+    </script>
+        <script
+            src="js/mainScripts.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar VHalignCenter">
+                <span class="title">Ballunis kunstverk</span>
+            </div>
+            <div class="sidenav">
+                <a class="menuItem" id="artistBtn">Om kunstneren</a>
+                <a class="menuItem" id="imagesBtn">Bilder</a>
+                <a class="menuItem" id="documentationBtn">Dokumentasjon</a>
+            </div>
+            <div class="main">
+                <div class="section" id="artistSection">
+                    <h1>Om kunstneren Balluni</h1>
+                    <p>Etter en mislykket dag på sirkuset fant klovnen Balluni
+                        ut at han ikke ville jobbe på sirkes mer. Han hadde fått
+                        nok av strenge sirkusdirektører som ikke satte stor nok
+                        pris på alle ballongene hans. Etter dette rømte han fra
+                        sirkuset, og startet en egen ballongbedrift.</p> <p>I
+                        dag er han selvstendig næringsdrivende og en av norges
+                        fremste ballongeksportører. Ballongene hans er av
+                        ypperste kvalitet, og du kan se dem fly på himmelen året
+                        rundt!</p>
+                    <p>Balluni trenger faktisk litt hjelp av deg til å poppe
+                        noen ballonger, og lage noen nye. Scroll nedover for å
+                        se hvordan du kan hjelpe han!</p>
+
+
+
+                </div>
+
+                <div class="section" id="imagesSection">
+                    <h2>SVG</h2>
+                    <p><b>Brukerinteraksjon: klikk på en ballong for å sprekke
+                            den!</b></p>
+                    <div><p>Du har poppet: <span id="svgData"
+                                style="font-size: 250%">0</span> ballong(er)!</p></div>
+                    <div id="svgContainer"></div>
+
+
+                    <h2>Canvas</h2>
+                    <p>Her er det brukt canvas for å
+                        tegne
+                        ballonger.</p>
+                    <p><b>Brukerinteraksjon: trykk innenfor rammen for å
+                            lage en ny
+                            ballong,
+                            med tilfeldig farge og
+                            størrelse!</b></p>
+                    <div><p>Antall ballonger:<span id="canvasData"
+                                style="font-size: 250%"></span></p></div>
+                    <canvas id="myCanvas" width="600"
+                        height="600"
+                        style="border:8px solid
+                        lightblue;">
+                        Your browser does not support
+                        the canvas
+                        element.
+                    </canvas>
+                </div>
+
+                <div class="section"
+                    id="documentationSection">
+                    <h2>Dokumentasjon</h2>
+                    <button class="btn"
+                        id="toggleDocumentation">Vis
+                        dokumentasjon</button>
+                    <div id="documentation">
+                        <div class="docItem">
+                            <p><b>CSS-grid</b> er brukt til å lage et rutenett
+                                på 3 x 3
+                                ruter som er grenser for de største
+                                HTML-elementene. I den første raden av
+                                rutenettet befinner navigasjonsbaren seg, og
+                                denne raden har en statisk høyde. Høyden i neste
+                                rad er dynamisk satt til <i>auto</i>, dvs at den
+                                endrer
+                                seg etter høyden på barne-elementene. Nederste
+                                rad brukes bare av footeren, og har i likhet med
+                                første rad en statisk høyde.
+                                <br>
+                                Første kolonne har en statisk bredde, og den
+                                holder bredden til sidemenyen. Første og siste
+                                kolonne har lik bredde, og de danner sammen en
+                                <i>container</i> for innholdet i midten av
+                                siden.
+                                <br>
+                                På skjermer som har bredde mindre enn 1200px
+                                (mobiler og nettbrett) så aktiveres en ny <i>media-query</i>,
+                                som endrer bredden til kolonnene i
+                                CSS-grid. Høyre kolonne settes til bredde lik
+                                null,
+                                siden på små skjermer ønsker vi å utnytte mest
+                                mulig av bredden i skjermen, og bredden i
+                                venstre kolonne reduseres, for å få mer plass
+                                til hovedinnholdet i midterste kolonne.
+                            </p>
+                            <p>
+                                <b>CSS-Flexbox</b> er blant annet brukt for å
+                                midtstille tittelen i navigasjonsbaren i
+                                vertikal og horisontal retning. Navigasjonsbaren
+                                setter display til flex, som gjør den om til en
+                                flex-forelder, og bruker flexbox egenskapene
+                                <i>justify-content</i> og <i>align-items</i>
+                                for å midtstille
+                                barne-elementer i flexboxen. <br>
+                                Her i dokumentasjonen så er flexbox brukt for å
+                                vise to kolonner med tekst. Kolonnene har en
+                                bredde, og det er brukt <i>flex-wrap</i> for å
+                                sørge for at på små skjermer så viser det en
+                                kolonne i stedet for to.
+                            </p>
+                            <p>
+                                <b>HTML Canvas</b> er brukt for å tegne opp
+                                ballonger i det nederste kunstverket. Når siden
+                                lastes så genererer canvaset 8 ballonger
+                                innenfor rammen, som blir tilfeldig plassert i
+                                canvaset, og varierer litt i størrelse, farge og
+                                gjennomsiktighet. Jeg har brukt JS funksjonen
+                                <i>Math.random()</i> for å generere tilfeldige
+                                <i>x</i> og <i>y</i> koordinater.
+                                <br>Jeg har
+                                definert en liste med hex-koder til en
+                                fargepallett av rosa/lilla som velges tilfeldig,
+                                i tillegg til noen forhåndsdefinerte verdier for
+                                gjennomsiktighet som legges til i hex-koden.
+                                Dette er for å skape litt mer variasjon blant
+                                ballongene, og litt mer "bevegelse" i bildet.
+                                <br>
+                                En ballong er tegnet opp av en ellipse, en
+                                trekant og ett rektangel. Førstnevnte er tegnet
+                                opp med canvas funksjonen <i>ellipse()</i>, mens
+                                de to siste er tegnet med å bruke <i>path()</i>,
+                                <i>moveTo()</i> og <i>lineTo()</i>.
+                                <br>
+                                Når brukeren klikker et sted innenfor canvaset,
+                                så avfyres en <i>click-event</i> på canvaset,
+                                som videresender en <i>mouse-event</i>. Fra
+                                denne <i>mouse-eventen</i> henter jeg ut x og y
+                                koordinater fra hvor klikket fant sted, og
+                                tegner opp en ny ballong på de koordinatene.
+                                Denne ballongen får i tillegg en tilfeldig farge
+                                og størrelse. Etter at en ny ballong er tegnet
+                                opp på canvaset så oppdateres og teksten med
+                                antall ballonger på bildet.
+                            </p>
+                        </div>
+                        <div class="docItem">
+                            <p>
+                                <b>SVG</b> er brukt for å vise de animerte
+                                ballongene i "SVG"-seksjonen. Siden jeg ønsker å
+                                tegne opp mange ballonger så valgte jeg å
+                                generere SVG-elementene fra JS, siden dette er
+                                en repetetiv oppgave som best løses med en
+                                løkke.
+                                Ballongene får en tilfeldig x-koordinat, men
+                                alle settes i starten med samme y-koordinat.
+                                SVG-animasjons-attributtet <i>begin</i> er brukt
+                                for å starte ballongene etter ulike tidspunkt
+                                etter at animasjonen er startet for at det skal
+                                se mer realistisk ut.
+                                <br>
+                                Ballongene er tegnet opp i svg med
+                                svg-elementene <i>ellipse</i>, <i>polygon</i> og
+                                <i>rect</i>. I JS har jeg brukt funksjonen <i>createElementNS()</i>
+                                for å opprette DOM-elementer fra javascript, som
+                                jeg etter hvert appender til en <i>div</i> i
+                                HTML-fila.
+                                <br>
+                                For å animere ballongene har jeg brukt svgs <i>animate</i>
+                                element. De tre ulike typene svg-elementene som
+                                er brukt er definert med ulike attributter, og
+                                derfor er og <i>animate</i> elementene tilpasset
+                                til hvert enkelt svg-element for å fungere
+                                riktig. Til slutt er disse tre ulike
+                                svg-elementene lagt inn i en felles svg-holder,
+                                som er deres felles forelder-element i DOM.
+                                <br>
+                                På ballong-svg-elementet har jeg lagt til et <i>onmouseover</i>
+                                og <i>onmouseout</i> event for å legge til
+                                kantlinje på elementet når musa er over en
+                                ballong, og sette musepeker til <i>peker</i>.
+                                Ballongene har og en <i>onclick</i> funksjon som
+                                setter elementets css-egenskap <i>display =
+                                    'none'</i>, for at det skal se ut som at
+                                ballongen er poppet.
+                            </p>
+                            <p>
+                                <b>jQuery</b> er brukt til å vise/skjule
+                                dokumentasjons-blokken når man trykker på
+                                knappen "vis dokumentasjon". Her er det brukt
+                                jQuery's funksjon <i>slideToggle()</i> som gjør
+                                det enkelt å bytte mellom de to tilstandene: vis
+                                og skjul.
+                                Når en knapp trykkes i sidemenyen så har jeg
+                                brukt jQuerys <i>click</i> og <i>animate</i>
+                                funksjoner for å
+                                scrolle til den tilhørende seksjonen på siden.
+                            </p>
+                            <p>
+                                <b>Cross-browser-testing</b> er gjort på Google
+                                Chrome 84 og Safari 13 på macOS. Her er det
+                                testet at layout plasseres riktig, og at alle
+                                interaksjoner fungerer likt. Jeg kom over
+                                nyttigheten av å definere <i>charset</i> til
+                                "UTF-8" for å vise norske tegn riktig. <i>Mouse-event</i>
+                                i HTML har ulike parametre som sendes i Chrome
+                                og Safari, og for å endre style på et
+                                svg-element måtte jeg endre fra <i>e.path[index].style
+                                    ...</i>, til <i>e.srcElement.parentElement.style
+                                    ... </i> for å få riktig oppførsel.
+                            </p>
+                            <p>De viktigste informasjonskildene jeg har brukt på
+                                dette prosjektet har vært: w3schools.com,
+                                developer.mozilla.org, stackoverflow.com,
+                                css-tricks.com og codepen.io.</p>
+                            <p>Jeg har gjenbrukt en kodesnutt fra hovedløsningen
+                                her:
+                                https://stackoverflow.com/questions/3234256,
+                                for å finne relativ x og y koordinat fra
+                                museklikk i et Canvas. Bilde-url:
+                                images8.alphacoders.com/465/465337.jpg</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="footer VHalignCenter"><span style="color:white">IT2810
+                    Webutvikling prosjekt 1</div>
+            </div>
+        </body>
+    </html>

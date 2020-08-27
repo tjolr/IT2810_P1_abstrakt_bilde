@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+
+  /* Image is downloaded from: https://images8.alphacoders.com/465/465337.jpg */
+  background: url('../images/mountain.jpg');
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.sidenav {
+  background-color: #13396b5e;
+  height: 100%;
+  width: 15rem;
+  position: fixed;
+  z-index: 1;
+  top: 65px;
+  left: 0;
+  margin-bottom: 100px;
+  overflow-x: hidden;
+}
+
+.menuItem {
+  padding: 2rem;
+  text-decoration: none;
+  font-size: 23px;
+  display: block;
+  transition: 0.2s;
+}
+
+.menuItem:hover {
+  background-color: #aa537988;
+  cursor: pointer;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 65px;
+
+  background-color: #132b36;
+}
+
+.VHalignCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+  color: white;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #aa5379e1;
+  color: white;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background-color: #aa5379b0;
+  cursor: pointer;
+}
+
+#documentation {
+  background-color: #222a41e1;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.docItem {
+  flex-grow: 1;
+  width: 400px;
+  text-align: left;
+  padding: 0.5rem;
+  text-overflow: ellipsis;
+}
+
+.main {
+  text-align: center;
+  padding: 2rem;
+}
+
+.section {
+  display: block;
+  justify-items: center;
+  margin-bottom: 4rem;
+}
+
+.footer {
+  background-color: #323232;
+  z-index: 2;
+}
+
+@media (max-width: 1200px) {
+  .sidenav {
+    width: 10rem;
+  }
+
+  .menuItem {
+    padding: 1rem;
+    font-size: 17px;
+  }
+}
